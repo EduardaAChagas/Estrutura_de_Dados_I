@@ -1,22 +1,31 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct _sequencia_{
-    int *dados;
-    int tam_max;
-    int qtd_now;
+typedef struct _colecao_ {
+int qtd_atual;
+int tam_max;
+void **item;
+}Colecao;
 
-}sequencia;
+typedef struct _aguaviva_{
+    char nome[100];
+    int registro;
+    float localizacao;
+    char raca[100];
+}Aguaviva;
 
-sequencia *criar( int tam);
-int insert(sequencia *vetor, int dado);
-int search(sequencia *vetor, int key);
-int saca_fora(sequencia *vetor, int elm);
+
+Colecao *criarColecao( int tam_max);
+void insert(Colecao *cofo, void *dado);
+int search(Colecao *cofo, void *key);
+int remove(Colecao *cofo, void *item);
 
 
 
 /*
-
+int colInserir( Colecao *c, void * item );
+void *colRetirar( Colecao *c, void *item );
+void *colBuscar( Coleca *c, void *chave );
 typedef struct _Aguaviva_{
     char nome[100];
     int registro;
@@ -31,7 +40,7 @@ typedef struct _Colecao_{
 }Colecao;
 
 Aguaviva *criarAguaviva(int n);
-Colecao *criarcolecao(int n);
+Colecao *criarColecao(int n);
 int inserirAguaviva(Colecao *c,Aguaviva *agvv);
 Aguaviva removeAguaviva(Colecao *c,int key_registro);
 int pesquisarAguaviva(Colecao *c,int key_registro);

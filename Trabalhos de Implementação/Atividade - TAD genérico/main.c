@@ -10,33 +10,33 @@ void main(){
     int key;
     int elm;
     int i;
-    sequencia *vetor;
+    Colecao *cofo;
 
     printf("tamanho");
     scanf("%i",&tam);
-    vetor=criar(tam);
+    cofo=criar(tam);
 
     for(i=0;i<tam;i++){
         printf("dado");
         scanf("%i",&dado);
-        log=insert(vetor,dado);
+        log=insert(cofo,dado);
     }
-      for(i=0;i<vetor->qtd_now;i++){
-        printf("vet[%i]:%i \n",i+1,vetor->dados[i]);
+      for(i=0;i<cofo->qtd_atual;i++){
+        printf("vet[%i]:%i \n",i+1,cofo->dados[i]);
     }
 
     printf("busca");
     scanf("%i",&key);
 
-    log=search(vetor,key);
+    log=search(cofo,key);
     printf("%i",log);
 
     printf("destroi");
     scanf("%i",&elm);
-    log=saca_fora(vetor,elm);
+    log=saca_fora(cofo,elm);
 
-      for(i=0;i<vetor->qtd_now;i++){
-        printf("vet[%i]:%i \n",i+1,vetor->dados[i]);
+      for(i=0;i<cofo->qtd_atual;i++){
+        printf("vet[%i]:%i \n",i+1,cofo->dados[i]);
     }
 
 

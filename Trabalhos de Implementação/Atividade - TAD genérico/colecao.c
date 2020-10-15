@@ -4,12 +4,12 @@
 #include "colecao.h" 
 
 
-sequencia *criar( int tam){
+Colecao *criar( int tam){
     if(tam<0){
         return 0;
     }
-    sequencia *vetor;
-    vetor=(sequencia*)malloc(sizeof(sequencia));
+    Colecao *vetor;
+    vetor=(Colecao*)malloc(sizeof(Colecao));
     if(vetor==NULL){
         return 0;
     }
@@ -18,29 +18,29 @@ sequencia *criar( int tam){
         return 0;
     }
     vetor->tam_max=tam;
-    vetor->qtd_now=0;
+    vetor->qtd_atual=0;
     return vetor;
 }
 
-int insert(sequencia *vetor, int dado){
+int insert(Colecao *vetor, int dado){
     if(vetor==NULL || vetor->dados == NULL )  {
         return 0;
     }
-    if(vetor->qtd_now == (vetor->tam_max)){
+    if(vetor->qtd_atual == (vetor->tam_max)){
        return 0;
     }
-    vetor->dados[vetor->qtd_now]=dado;
-    vetor->qtd_now+=1;
+    vetor->dados[vetor->qtd_atual]=dado;
+    vetor->qtd_atual+=1;
     return 1;
 
 }
 
-int search(sequencia *vetor, int key){
+int search(Colecao *vetor, int key){
     int i;
-     if(vetor==NULL || vetor->dados == NULL || vetor->qtd_now == 0 )  {
+     if(vetor==NULL || vetor->dados == NULL || vetor->qtd_atual == 0 )  {
         return 0;
     }
-    for(i=0;i<vetor->qtd_now;i++){
+    for(i=0;i<vetor->qtd_atual;i++){
         if(vetor->dados[i]==key){
             return key;
         }
@@ -48,15 +48,15 @@ int search(sequencia *vetor, int key){
     }
 }
 
-int saca_fora(sequencia *vetor, int elm){
-     if(vetor==NULL || vetor->dados == NULL || vetor->qtd_now == 0 )  {
+int saca_fora(Colecao *vetor, int elm){
+     if(vetor==NULL || vetor->dados == NULL || vetor->qtd_atual == 0 )  {
         return 0;
     }
     int i;
-    for(i=0;i<vetor->qtd_now;){
+    for(i=0;i<vetor->qtd_atual;){
         if(vetor->dados[i]==elm){
-            vetor->dados[i]=vetor->dados[(vetor->qtd_now)-1];
-            vetor->qtd_now-=1;
+            vetor->dados[i]=vetor->dados[(vetor->qtd_atual)-1];
+            vetor->qtd_atual-=1;
         }else{
             i++;
         }
